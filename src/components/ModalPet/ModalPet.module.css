@@ -1,0 +1,401 @@
+/* ===========================
+   OVERLAY E POP-UP
+   =========================== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal {
+  position: relative;
+  background: #0a6f74;
+  border-radius: 22px;
+  padding: 28px;
+  width: min(1100px, calc(100vw - 32px));
+  max-width: 1100px;
+  max-height: 100vh;
+  height: auto;
+  box-shadow: 0 0 25px rgba(0,0,0,0.25);
+  overflow: hidden;
+  overflow-x: hidden;
+  border: 4px solid #59a3a9;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.modalContent {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  align-items: stretch;
+  min-height: 0;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.imageBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+  
+}
+
+/* ===========================
+    BOTÃƒO DE FECHAR
+  ===========================*/
+.closeBtn {
+  background: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--heading);
+  cursor: pointer;
+  z-index: 1200;
+  transition: background 0.12s, transform 0.12s;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  order: 0;
+}
+
+/* ===========================
+   COLUNA DA IMAGEM
+   =========================== */
+.imageBox img {
+  width: 100%;
+  max-width: 78%;
+  height: auto;
+  max-height: 350px;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.petName {
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color: #59a3a9;
+  color:white;
+  font-size: clamp(20px, 3vw, 36px);
+  font-weight: 700;
+  text-align: center;
+  border-radius: 14px;
+  border: 3px solid #0f6f78;
+}
+
+/* ===========================
+   COLUNA DA INFOBOX
+   =========================== */
+.infoBox {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  border: 4px solid var(--heading);
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  max-height: 532px;
+  min-height: 0;
+  min-width: 0;
+  max-width: 100%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.infoColumns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+/* COLUNA 1 E 2 (TEXTO DE INFOS) */
+.infoColumns p {
+  font-size: 20px;
+  color: #222;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.infoColumns strong {
+  color:#59a3a9;
+  font-weight: 700;
+}
+
+
+.infoGroup,
+.respEndGroup {
+  flex: 1 1 60%;
+  min-width: 180px;
+}
+
+/* ===========================
+   DESCRICAO
+   =========================== */
+.descriptionBox {
+  margin-top: 20px;
+  background: var(--card);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 18px;
+  min-height: 120px;
+  max-height: 42vh;
+  border: 3px solid var(--heading);
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.descLabel {
+  font-size: 20px;
+  font-weight: 700;
+  color: #59a3a9;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.descText {
+  color: var(--heading);
+  font-size: 16px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* ===========================
+   BOTÃƒO
+   =========================== */
+.contactBtn {
+  position: relative;
+  margin-top: 12px;
+  align-self: center;
+  background: var(--nav);
+  color: white;
+  padding: 12px 64px;
+  border: 3px solid var(--border);
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+
+
+
+/* ================================
+   RESPONSIVIDADE DO MODAL
+   ================================ */
+
+@media (max-width: 1100px) {
+  .imageBox img {
+    max-height: 300px;
+  }
+
+  .contactBtn {
+    padding: 12px 48px;
+  }
+
+  .infoBox {
+    max-height: 532px;
+  }
+}
+
+/* Responsividade para tablets */
+
+@media (max-width: 890px) {
+  .modal {
+    padding: 20px;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 760px;
+
+  }
+
+  .modalContent {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .imageBox {
+    width: 100%;
+    order: 1;
+  }
+
+  .imageBox img {
+    max-height: 280px;
+    border-radius: 16px;
+  }
+
+  .infoBox {
+    order: 2;
+    width: 100%;
+    padding: 20px;
+    border-radius: 14px;
+    max-height: 60vh;
+  }
+ 
+  .petName {
+    margin-top: 12px;
+    font-size: clamp(20px, 5vw, 28px);
+    padding: 10px 16px;
+    border-radius: 12px;
+  }
+
+  .infoColumns {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .infoColumns p {
+    font-size: 18px;
+  }
+
+  .infoGroup,
+  .respEndGroup {
+    width: 100%;
+  }
+
+  .infoBox {
+    max-height: calc(100vh - 260px);
+  }
+
+  .descriptionBox {
+    margin-top: 16px;
+    max-height: 280px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .descLabel {
+    font-size: 18px;
+  }
+
+  .descText {
+    font-size: 15px;
+  }
+
+  /* Em telas pequenas o botÃ£o passa a fluir dentro do conteÃºdo para evitar overflow */
+  .contactBtn {
+    position: static;
+    transform: none;
+    margin: 16px auto 0 auto;
+    display: flex;
+    padding: 12px 40px;
+    font-size: 16px;
+    border-radius: 35px;
+  }
+
+  .closeBtn {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    order:0;
+  }
+
+  .pawIcon {
+    width: 50px;
+  }
+}
+
+/* responsividade  de celulares */
+
+@media (max-width: 490px) and (min-width: 390px) {
+  .imageBox img {
+    max-height: 250px;
+  }
+
+  .modal {
+    padding: 12px;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .modal {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .infoBox {
+    max-height: calc(100vh - 200px);
+  }
+
+  /* scroll para card no celular */
+  .modal::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .modal::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  .modal::-webkit-scrollbar-thumb {
+    background: rgb(161, 161, 161);
+    border-radius: 10px;
+  }
+  /* remover bordar do modal para celulares */
+  .modal {
+    border: none;
+    border-radius: 0;
+  }
+  /* botao de contatar ong */
+  .contactBtn {
+    display:flex;
+    justify-content: center;
+    width: 60%;
+    
+    
+  }
+ 
+  .closeBtn {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    order:0;
+    /* top: 10px; */
+    /* right: 10px; */
+  }
+
+  .petName {
+    font-size: 18px;
+  }
+
+  .pawIcon {
+    width: 60px;
+  }
+
+  
+}
+
+
+
+
