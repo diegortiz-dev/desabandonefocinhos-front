@@ -5,6 +5,14 @@ import { useRouter } from "next/navigation";
 import { FaPaw, FaEye, FaEyeSlash } from "react-icons/fa";
 import styles from "../../login-usuario/login.module.css";
 
+const getApiBaseUrl = () =>
+  (
+    process.env.NEXT_PUBLIC_PETZ_API_URL ||
+    "https://desabandonefocinhos-api.onrender.com"
+  )
+    .trim()
+    .replace(/\/$/, "");
+
 export default function AdminLoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -22,7 +30,7 @@ export default function AdminLoginPage() {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/admin/login", {
+      const res = await fetch(`${getApiBaseUrl()}/api/admin/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

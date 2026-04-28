@@ -15,7 +15,7 @@ export default function Header() {
   const [accountOpen, setAccountOpen] = useState(false);
   const accountWrapRef = useRef(null);
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  const API_URL = process.env.NEXT_PUBLIC_PETZ_API_URL || "http://localhost:3000";
 
   useEffect(() => {
     const syncAuth = () => {

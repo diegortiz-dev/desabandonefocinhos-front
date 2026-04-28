@@ -6,7 +6,13 @@ import { FaPaw, FaEye, FaEyeSlash } from "react-icons/fa";
 import styles from "./login.module.css";
 import useSafeToast from "@/components/Toast/useSafeToast";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+const getApiBaseUrl = () =>
+  (
+    process.env.NEXT_PUBLIC_PETZ_API_URL ||
+    "https://desabandonefocinhos-api.onrender.com"
+  )
+    .trim()
+    .replace(/\/$/, "");
 
 export default function LoginPage() {
   const router = useRouter();
@@ -40,6 +46,7 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
+      const API_URL = getApiBaseUrl();
       const cpfLimpo = cpf.replace(/\D/g, "");
     
       const resp = await fetch(`${API_URL}/api/auth/login`, {

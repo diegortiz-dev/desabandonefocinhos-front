@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { FaPaw } from "react-icons/fa";
 import styles from "./perfilUsuario.module.css";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+const API_URL = process.env.NEXT_PUBLIC_PETZ_API_URL || "http://localhost:3000";
 
 // Helper para obter URL completa da imagem
 const getImageUrl = (imagem) => {

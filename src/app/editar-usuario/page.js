@@ -6,7 +6,7 @@ import { FaPaw } from "react-icons/fa";
 import styles from "./editar-usuario.module.css";
 import useSafeToast from "@/components/Toast/useSafeToast";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+const API_URL = process.env.NEXT_PUBLIC_PETZ_API_URL || "http://localhost:3000";
 
 export default function EditarUsuarioPage() {
   const { showToast } = useSafeToast();

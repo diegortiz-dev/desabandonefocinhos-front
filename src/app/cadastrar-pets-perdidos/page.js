@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import useSafeToast from "@/components/Toast/useSafeToast";
 import styles from "./perdidos.module.css";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+const API_URL = process.env.NEXT_PUBLIC_PETZ_API_URL || "http://localhost:3000";
 
 export default function CadastrarPerdidos() {
   const router = useRouter();
